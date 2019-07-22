@@ -153,9 +153,9 @@ def file_list(basedir, fromdate=None, todate=None):
             dirdate_dic[idir] = dt.strptime(matching.group(1), "%Y-%m-%d")
 
     if  not from_match:
-        raise Exception("Unable to find fromdate=%s are on HDFS %s" % (o_fromdate, basedir))
+        print("Unable to find fromdate=%s are on HDFS %s" % (o_fromdate, basedir))
     if  not to_match:
-        raise Exception("Unable to find todate=%s are on HDFS %s" % (o_todate, basedir))
+        print("Unable to find todate=%s are on HDFS %s" % (o_todate, basedir))
     return [k for k, v in dirdate_dic.items() if v >= fromdate and v <= todate]
 
 def print_rows(df, dfname, verbose, head=5):
